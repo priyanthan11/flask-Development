@@ -7,19 +7,56 @@
                 <legend class="border-bottom mb-4"> Join Today</legend>
                 <div class="form-goup">
                     {{ form.username.label(class="form-control-label") }}
-                    {{ form.username(class="form-control form-control-lg") }}
+
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for errors in form.username.errors %}
+                            <span> {{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
                 <div class="form-goup">
                     {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for errors in form.email.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
                     {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
                 </div>
                 <div class="form-goup">
                     {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for errors in form.password.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
                     {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
                 </div>
                 <div class="form-goup">
                     {{ form.confrim_password.label(class="form-control-label") }}
+                    {% if form.confrim_password.errors %}
+                    {{ form.confrim_password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for errors in form.confrim_password.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
                     {{ form.confrim_password(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
             </fieldset>
             <div class="form-group">
@@ -37,6 +74,3 @@
         </div>
 
 {% endblock content %}
-
-
-# https://youtu.be/UIJKdCIEXUQ?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&t=1355 <== continue from this 
